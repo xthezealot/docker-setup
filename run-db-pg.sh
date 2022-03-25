@@ -1,12 +1,14 @@
 echo "Password of default user (postgres):"
 read -s PASSWORD
 
-docker volume create db-pg
+CONTAINER="db-pg"
+
+docker volume create $CONTAINER
 
 docker run -d \
-  --name db-pg \
+  --name $CONTAINER \
   --restart unless-stopped \
   -p 5432:5432 \
-  -v db-pg:/var/lib/postgresql/data \
+  -v $CONTAINER:/var/lib/postgresql/data \
   -e POSTGRES_PASSWORD=$PASSWORD \
   postgres:alpine
