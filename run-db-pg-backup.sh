@@ -7,7 +7,7 @@ docker stop $CONTAINER
 
 docker run --rm \
   --volumes-from $CONTAINER \
-  -v $(pwd):/backup \
+  -v $PWD:/backup \
   busybox \
   tar cvf /backup/$FILE /var/lib/postgresql/data
 
