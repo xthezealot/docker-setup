@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo "Password of default user (postgres):"
 read -s PASSWORD
 
