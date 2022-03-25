@@ -1,3 +1,5 @@
+#!/bin/bash
+
 NAME=""
 PORT=
 DOMAIN=""
