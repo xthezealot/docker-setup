@@ -1,6 +1,8 @@
-if [ $Name != $USER ]
+FILE="db-pg-backup.tar"
+
+if [[ ! -f "$FILE" ]]
 then
-  echo "File \"db-pg-backup.tar\" doesn't exist"
+  echo "File \"$FILE\" doesn't exist"
   exit
 fi
 
@@ -10,6 +12,6 @@ docker run --rm \
   --volumes-from db-pg \
   -v $(pwd):/backup \
   busybox \
-  tar xvf /backup/db-pg-backup.tar
+  tar xvf /backup/$FILE
 
 docker start db-pg
