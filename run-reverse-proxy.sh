@@ -1,5 +1,13 @@
+#!/bin/bash
+
 echo "Email address for Let's Encrypt ACME:"
 read EMAIL
+
+if [[ $EMAIL =~ '(.+)@(.+)' ]]
+then
+  echo "Invalid email address"
+  exit 0
+fi
 
 CONFIG="global:
   checkNewVersion: true
