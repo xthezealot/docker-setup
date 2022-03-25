@@ -1,9 +1,19 @@
 #!/bin/bash
 
-NAME=""
-PORT=
-DOMAIN=""
-IMAGE=""
+echo "Container name:"
+read NAME
+
+echo "App running on port port:"
+read PORT
+
+echo "Exposed port:"
+read PORT
+
+echo "Domain name:"
+read DOMAIN
+
+echo "Docker image name:"
+read IMAGE
 
 docker run -d --rm \
   --name $NAME \
