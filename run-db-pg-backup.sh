@@ -1,3 +1,5 @@
+#!/bin/bash
+
 CONTAINER="db-pg"
 FILE="db-pg-backup.tar"
 
