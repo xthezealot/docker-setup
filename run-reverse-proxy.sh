@@ -1,4 +1,4 @@
-EMAIL="hello@alefunion.com"
+EMAIL=""
 
 CONFIG="global:
   checkNewVersion: true
