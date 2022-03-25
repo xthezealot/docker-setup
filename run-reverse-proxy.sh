@@ -1,4 +1,5 @@
-EMAIL=""
+echo "Email address for Let's Encrypt ACME:"
+read EMAIL
 
 CONFIG="global:
   checkNewVersion: true
