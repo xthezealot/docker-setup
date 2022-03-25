@@ -1,3 +1,4 @@
+CONTAINER="db-pg"
 FILE="db-pg-backup.tar"
 
 if [[ ! -f "$FILE" ]]
@@ -6,12 +7,12 @@ then
   exit
 fi
 
-docker stop db-pg
+docker stop $CONTAINER
 
 docker run --rm \
-  --volumes-from db-pg \
+  --volumes-from $CONTAINER \
   -v $(pwd):/backup \
   busybox \
   tar xvf /backup/$FILE
 
-docker start db-pg
+docker start $CONTAINER
