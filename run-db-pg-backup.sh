@@ -1,9 +1,12 @@
-docker stop db-pg
+CONTAINER="db-pg"
+FILE="db-pg-backup.tar"
+
+docker stop $CONTAINER
 
 docker run --rm \
-  --volumes-from db-pg \
+  --volumes-from $CONTAINER \
   -v $(pwd):/backup \
   busybox \
-  tar cvf /backup/db-pg-backup.tar /var/lib/postgresql/data
+  tar cvf /backup/$FILE /var/lib/postgresql/data
 
-docker start db-pg
+docker start $CONTAINER
