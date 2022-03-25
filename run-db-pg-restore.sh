@@ -1,10 +1,12 @@
+#!/bin/bash
+
 CONTAINER="db-pg"
 FILE="db-pg-backup.tar"
 
 if [[ ! -f "$FILE" ]]
 then
   echo "File \"$FILE\" doesn't exist"
-  exit
+  exit 0
 fi
 
 docker stop $CONTAINER
