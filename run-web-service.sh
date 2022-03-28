@@ -15,8 +15,9 @@ read DOMAIN
 echo "Docker image name:"
 read IMAGE
 
-docker run -d --rm \
+docker run -d \
   --name $NAME \
+  --restart unless-stopped \
   -p $PORT:$PORT \
   --label "traefik.http.routers.$NAME-http.rule=Host(\"$DOMAIN\")" \
   --label "traefik.http.routers.$NAME-https.rule=Host(\"$DOMAIN\")" \
