@@ -15,7 +15,7 @@ docker run -d \
   --name registry \
   --restart unless-stopped \
   -p 5000:5000 \
-  -v $PWD/registry:/var/lib/registry
+  -v $PWD/registry:/var/lib/registry \
   -v $PWD/htpasswd:/htpasswd \
   -e REGISTRY_STORAGE_DELETE_ENABLED=true \
   -e REGISTRY_AUTH=htpasswd \
