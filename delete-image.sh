@@ -1,27 +1,10 @@
 #!/bin/bash
 
-echo "User:"
-read USER
-
-echo "Password:"
-read -s PASSWORD
-
-echo "Catalog:"
-curl -u $USER:$PASSWORD https://registry.alefunion.com/v2/_catalog
+docker exec registry ls /var/lib/registry/docker/registry/v2/repositories
 
 echo "Docker image name to delete:"
 read IMAGE
 
-echo "Tag name:"
-read TAG
+docker exec registry rm -r /var/lib/registry/docker/registry/v2/repositories/$IMAGE
 
-REGISTRY="localhost:5000"
-
-curl $auth -X DELETE -sI -k "https://$REGISTRY/v2/$IMAGE/manifests/$(
-  curl -u $USER:$PASSWORD -sI -k \
-    -H "Accept: application/vnd.docker.distribution.manifest.v2+json" \
-    "https://$REGISTRY/v2/$IMAGE/manifests/$TAG" \
-    | tr -d '\r' | sed -En 's/^Docker-Content-Digest: (.*)/\1/pi'
-)"
-
-docker exec -it registry bin/registry garbage-collect /etc/docker/registry/config.yml
+docker exec registry registry garbage-collect -m /etc/docker/registry/config.yml
