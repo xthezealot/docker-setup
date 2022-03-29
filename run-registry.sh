@@ -9,7 +9,7 @@ read USER
 echo "Password:"
 read -s PASSWORD
 
-docker run -rm --entrypoint htpasswd httpd:2 -Bbn $USER $PASSWORD > htpasswd
+docker run --rm --entrypoint htpasswd httpd:2 -Bbn $USER $PASSWORD > htpasswd
 
 docker run -d \
   --name registry \
