@@ -23,3 +23,5 @@ curl $auth -X DELETE -sI -k "https://$REGISTRY/v2/$IMAGE/manifests/$(
     "https://$REGISTRY/v2/$IMAGE/manifests/$TAG" \
     | tr -d '\r' | sed -En 's/^Docker-Content-Digest: (.*)/\1/pi'
 )"
+
+docker exec -it registry bin/registry garbage-collect /etc/docker/registry/config.yml
