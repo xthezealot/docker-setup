@@ -15,6 +15,9 @@ read DOMAIN
 echo "Docker image name:"
 read IMAGE
 
+docker stop $NAME
+docker rm $NAME
+
 docker run -d \
   --name $NAME \
   --restart unless-stopped \
