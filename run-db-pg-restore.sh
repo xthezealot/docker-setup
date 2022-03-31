@@ -15,6 +15,6 @@ docker run --rm \
   --volumes-from $CONTAINER \
   -v $PWD:/backup \
   busybox \
-  sh -c "rm -r /var/lib/postgresql/data && tar xvf /backup/$FILE"
+  sh -c "rm -r /var/lib/postgresql/data/* && tar xvf /backup/$FILE"
 
 docker start $CONTAINER
