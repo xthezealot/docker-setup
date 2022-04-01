@@ -14,4 +14,4 @@ docker run -d \
   -p 5432:5432 \
   -v $CONTAINER:/var/lib/postgresql/data \
   -e POSTGRES_PASSWORD=$PASSWORD \
-  postgres:alpine
+  postgres:14
