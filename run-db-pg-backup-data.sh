@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CONTAINER="db-pg"
-FILE="db-pg-backup.tar"
+FILE="db-pg-data.tar"
 
 docker stop $CONTAINER
 

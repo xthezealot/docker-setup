@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CONTAINER="db-pg"
-FILE="db-pg-backup.sql"
+FILE="db-pg-dumpall.sql"
 
 docker cp $FILE $CONTAINER:/tmp/$FILE
 
