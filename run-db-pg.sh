@@ -5,6 +5,8 @@ read -s PASSWORD
 
 CONTAINER="db-pg"
 
+docker network create $CONTAINER
+
 docker volume create $CONTAINER
 
 docker run -d \
