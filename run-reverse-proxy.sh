@@ -39,6 +39,8 @@ echo "$CONFIG" > traefik.yml
 
 touch acme.json
 
+# TODO: Check if db-pg is running and connect reverse-proxy to the db-pg network.
+
 docker run -d \
   --name reverse-proxy \
   --restart unless-stopped \

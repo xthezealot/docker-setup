@@ -17,3 +17,5 @@ docker run -d \
   -v $CONTAINER:/var/lib/postgresql/data \
   -e POSTGRES_PASSWORD=$PASSWORD \
   postgres:14
+
+# TODO: Check if revrerse-proxy is running and connect it to the db-pg network.
