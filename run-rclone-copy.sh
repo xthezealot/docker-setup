@@ -6,7 +6,7 @@ read SRC
 echo "Remote config name:"
 read REMOTE
 
-echo "Destination:"
+echo "Destination directory:"
 read DST
 
 docker run --rm \
