@@ -3,6 +3,7 @@
 echo "Source file:"
 read SRC
 
+docker run --rm -v $PWD/.config/rclone:/config/rclone rclone/rclone listremotes
 echo "Remote config name:"
 read REMOTE
 
