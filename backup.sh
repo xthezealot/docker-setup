@@ -13,8 +13,10 @@ cd ~
 
 ~/docker-setup/run-db-pg-backup-dumpall.sh
 
-tar cvzf $SRC acme.json .config db-pg-dumpall.sql .docker/config.json docker-setup-local htpasswd .ssh traefik.yml
+crontab -l > crontab.txt
+
+tar cvzf $SRC acme.json .config crontab.txt db-pg-dumpall.sql .docker/config.json docker-setup-local htpasswd .ssh traefik.yml
 
 ~/docker-setup/run-rclone-copy.sh $SRC $DST GLACIER
 
-rm $SRC db-pg-dumpall.sql
+rm $SRC crontab.txt db-pg-dumpall.sql
