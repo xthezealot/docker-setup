@@ -28,7 +28,7 @@ then
   DST="$DST_NAME:$DST_DIR"
 fi
 
-STORAGE_CLASS = "$3"
+STORAGE_CLASS="$3"
 if [[ $# -eq 0 ]]
 then
   echo "Storage class (empty, STANDARD, GLACIER):"
