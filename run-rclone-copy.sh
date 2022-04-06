@@ -15,7 +15,7 @@ fi
 
 DST="$2"
 
-if [[ -z "$SRC" ]]
+if [[ -z "$DST" ]]
 then
   echo "Remotes:"
   docker run --rm -v $PWD/.config/rclone:/config/rclone rclone/rclone listremotes
