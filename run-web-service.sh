@@ -3,11 +3,11 @@
 echo "Container name:"
 read NAME
 
-echo "App running on port port:"
-read PORT
+echo "App running on port:"
+read APP_PORT
 
 echo "Exposed port:"
-read PORT
+read EXPOSED_PORT
 
 echo "Domain name:"
 read DOMAIN
@@ -21,7 +21,7 @@ docker rm $NAME
 docker run -d \
   --name $NAME \
   --restart unless-stopped \
-  -p $PORT:$PORT \
+  -p $EXPOSED_PORT:$APP_PORT \
   --label "traefik.http.routers.$NAME-http.rule=Host(\"$DOMAIN\")" \
   --label "traefik.http.routers.$NAME-https.rule=Host(\"$DOMAIN\")" \
   --label "traefik.http.routers.$NAME-https.tls=true" \
